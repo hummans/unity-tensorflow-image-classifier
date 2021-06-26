@@ -1,6 +1,7 @@
 using UniRx;
 using UnityEngine;
 using SimpleJSON;
+using System.Collections.Generic;
 
 namespace ViewModel
 {
@@ -8,11 +9,13 @@ namespace ViewModel
     public class TrackImageManager : ScriptableObject
     {
         [Header("AR Experience")]
-        public GameObject arPrefab;
-        public StringReactiveProperty[] rgbColors;
+        public GameObject arObject;
+        public string arImageTrack;
+        public Vector3 arScaleFactor;
 
         [Header("Configuration")]
-        public string imageNameToTrack;
+        public Material transparentMaterial;
+        public StringReactiveProperty[] rgbColors;
         public int realWidth;
         public int realHeight;
 

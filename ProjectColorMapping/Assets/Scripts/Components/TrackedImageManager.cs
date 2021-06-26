@@ -19,63 +19,81 @@ namespace Components
         public GameCmdFactory cmdGameFactory;
         public TrackImageManager trackerManagerData;
 
-        public TextMeshProUGUI tmpLabel;
+        [Header("UI Ref")]
+        public TextMeshProUGUI debugLabel;
 
-        void Start()
-        {
-            arTrackedImageManager.trackedImagesChanged += OnTrackedImagesChanged;
-        }
+        private GameObject _arPrefabInstantied;
+        private GameObject _cubeScreen;
+
+
         private void OnTrackedImagesChanged(ARTrackedImagesChangedEventArgs eventArgs)
         {
-            ARTrackedImage trackedImage = null;
-            GameObject arPrefab = null;
-            GameObject cubeTarget = null;
-
-            for (int i = 0; i < eventArgs.added.Count; i++)
+            foreach(ARTrackedImage trackedImage in eventArgs.added)
             {
-                trackedImage = eventArgs.added[i];
-                string imgName = trackedImage.referenceImage.name;
-
-                tmpLabel.text = imgName + " == " + trackerManagerData.name;
-
-                if(imgName == trackerManagerData.name)
-                {
-
-                    arPrefab = Instantiate(trackerManagerData.arPrefab, trackedImage.transform);
-                    arPrefab.SetActive(true);
-                    cubeTarget = CreateCubeForARFoundationTarget(this.gameObject, trackedImage.size.x, trackedImage.size.y, trackedImage.transform);       
-                    
-                    cmdGameFactory.TrackedImageChange(trackerManagerData, arPrefab, cubeTarget).Execute();
-                }
+               UpdateARImage(trackedImage);
+               _cubeScreen = CreateCubeForARFoundationTarget(this.gameObject, trackedImage.size.x, trackedImage.size.y, trackedImage.transform);               
+               cmdGameFactory.TrackedImageChange(trackerManagerData, _arPrefabInstantied, _cubeScreen).Execute();
             }
-
-            for (int i = 0; i < eventArgs.updated.Count; i++)
+            foreach(ARTrackedImage trackedImage in eventArgs.updated)
             {
-                trackedImage = eventArgs.updated[i];
-
                 if (trackedImage.trackingState == TrackingState.Tracking)
                 {
-                    arPrefab.SetActive(true);
+                    _arPrefabInstantied.transform.position = trackedImage.transform.position;
+                    _arPrefabInstantied.transform.rotation = Quaternion.identity;
+                    _arPrefabInstantied.transform.localScale = trackerManagerData.arScaleFactor;
+                    _arPrefabInstantied.SetActive(true);
                 }
                 else
                 {
-                    arPrefab.SetActive(false);
+                    _arPrefabInstantied.SetActive(false);
                 }
             }
-
-            for (int i = 0; i < eventArgs.removed.Count; i++)
+            foreach(ARTrackedImage trackedImage in eventArgs.removed)
             {
-                arPrefab.SetActive(false);
+                _arPrefabInstantied.SetActive(false);
             }
         }
 
-        public GameObject CreateCubeForARFoundationTarget(GameObject parentObj, float targetWidth, float targetHeight, Transform trans)
+        private void UpdateARImage(ARTrackedImage trackedImage)
+        {
+            string imgName = trackedImage.referenceImage.name;
+
+            _arPrefabInstantied = Instantiate(trackerManagerData.arObject);
+            _arPrefabInstantied.transform.position = trackedImage.transform.position;
+            _arPrefabInstantied.transform.rotation = Quaternion.identity;
+            _arPrefabInstantied.transform.localScale = trackerManagerData.arScaleFactor;
+            _arPrefabInstantied.SetActive(true);
+
+            ShowTrackInfo(trackedImage.referenceImage.name);
+        }
+
+        private void ShowTrackInfo(string name)
+        {
+            debugLabel.text = "";
+            var runtimeReferenceImageLibrary = arTrackedImageManager.referenceLibrary as MutableRuntimeReferenceImageLibrary;  
+            debugLabel.text += $"TextureFormat.RGBA32 supported: {runtimeReferenceImageLibrary.IsTextureFormatSupported(TextureFormat.RGBA32)}\n";
+            debugLabel.text += $"Supported Texture Count ({runtimeReferenceImageLibrary.supportedTextureFormatCount})\n";
+            
+            debugLabel.text += $"trackedImage.referenceImage.name: {name}\n";
+            debugLabel.text += $"Go in arObjects.Values: {_arPrefabInstantied.name}\n";
+        }
+
+        public GameObject CreateCubeForARFoundationTarget(GameObject parentObj, float targetWidth, float targetHeight, Transform trackedImage)
         {
             GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
-            cube.transform.SetParent(trans);
-            cube.transform.localPosition = trans.localPosition;
+
+            cube.transform.SetParent(trackedImage);
+            cube.GetComponent<Renderer>().material = trackerManagerData.transparentMaterial;
+            cube.transform.localPosition = trackedImage.localPosition;
             cube.transform.localScale = new Vector3(targetWidth, 0.001f, targetHeight);
+            debugLabel.text += $"cube.referenceScreen.create: {cube.name}\n";
+            
             return cube; 
+        }
+
+        void OnEnable()
+        {
+            arTrackedImageManager.trackedImagesChanged += OnTrackedImagesChanged;
         }
         void OnDisable()
         {

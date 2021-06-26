@@ -91,6 +91,7 @@
 -define:UNITY_UNITYADS_API
 -define:ENABLE_MONO
 -define:NET_4_6
+-define:UNITY_PRO_LICENSE
 -define:ENABLE_CUSTOM_RENDER_TEXTURE
 -define:ENABLE_DIRECTOR
 -define:ENABLE_LOCALIZATION
@@ -279,8 +280,8 @@
 -r:"C:/Program Files/Unity/Hub/Editor/2021.1.12f1/Editor/Data/PlaybackEngines/AndroidPlayer/Variations/mono/Managed/UnityEngine.VRModule.dll"
 -r:"C:/Program Files/Unity/Hub/Editor/2021.1.12f1/Editor/Data/PlaybackEngines/AndroidPlayer/Variations/mono/Managed/UnityEngine.WindModule.dll"
 -r:"C:/Program Files/Unity/Hub/Editor/2021.1.12f1/Editor/Data/PlaybackEngines/AndroidPlayer/Variations/mono/Managed/UnityEngine.XRModule.dll"
--r:"C:/Users/matia/Desktop/MATIAS A. VALLEJOS/GITHUB (Git repos)/Personal/AR-color-mapping-opencv/Project/Library/PackageCache/com.unity.nuget.newtonsoft-json@2.0.0/Runtime/AOT/Newtonsoft.Json.dll"
--r:"C:/Users/matia/Desktop/MATIAS A. VALLEJOS/GITHUB (Git repos)/Personal/AR-color-mapping-opencv/Project/Library/PackageCache/com.unity.visualscripting@1.6.1/Runtime/VisualScripting.Flow/Dependencies/NCalc/Unity.VisualScripting.Antlr3.Runtime.dll"
+-r:"C:/Users/matia/Desktop/MATIAS A. VALLEJOS/GITHUB (Git repos)/Personal/AR-color-mapping-opencv/ProjectColorMapping/Library/PackageCache/com.unity.nuget.newtonsoft-json@2.0.0/Runtime/AOT/Newtonsoft.Json.dll"
+-r:"C:/Users/matia/Desktop/MATIAS A. VALLEJOS/GITHUB (Git repos)/Personal/AR-color-mapping-opencv/ProjectColorMapping/Library/PackageCache/com.unity.visualscripting@1.6.1/Runtime/VisualScripting.Flow/Dependencies/NCalc/Unity.VisualScripting.Antlr3.Runtime.dll"
 -r:"Library/Bee/artifacts/1300b0aP.dag/UnityEngine.UI.ref.dll"
 "Library/PackageCache/com.unity.timeline@1.5.5/Runtime/Activation/ActivationMixerPlayable.cs"
 "Library/PackageCache/com.unity.timeline@1.5.5/Runtime/Activation/ActivationPlayableAsset.cs"

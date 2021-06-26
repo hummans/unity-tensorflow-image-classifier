@@ -12,7 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9ec6aa80df95f24e8d66de17ed30281, type: 3}
   m_Name: TrackImageManager
   m_EditorClassIdentifier: 
-  arPrefab: {fileID: 2431970225005740307, guid: 8a128cf2b55bd724d87c6dfa6e7a70b3, type: 3}
-  imageNameToTrack: image_qr
-  realWidth: 1600
-  realHeight: 1600
+  arObject: {fileID: 2431970225005740307, guid: 8a128cf2b55bd724d87c6dfa6e7a70b3, type: 3}
+  arImageTrack: instagram
+  arScaleFactor: {x: 0.2, y: 0.2, z: 0.2}
+  transparentMaterial: {fileID: 2100000, guid: c1ad277982e4b0d43b77604130bdf22f, type: 2}
+  rgbColors:
+  - value: 255
+  - value: 255
+  - value: 255
+  realWidth: 1080
+  realHeight: 1350
