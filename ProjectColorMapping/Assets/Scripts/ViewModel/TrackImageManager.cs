@@ -1,6 +1,5 @@
 using UniRx;
 using UnityEngine;
-using SimpleJSON;
 using System.Collections.Generic;
 
 namespace ViewModel
