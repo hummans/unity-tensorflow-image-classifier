@@ -12,15 +12,13 @@ namespace Components
     [CreateAssetMenu(fileName = "New TrackedImageManager", menuName = "Data/AR Track Image Manager")]
     public class TrackedImageManager : MonoBehaviour
     {   
-        [Header("AR Reference")]
+        [Header("Reference")]
         public ARTrackedImageManager arTrackedImageManager;
+        public DebugConsole debugConsole;
         
         [Header("Data")]
         public GameCmdFactory cmdGameFactory;
         public TrackImageManager trackerManagerData;
-
-        [Header("UI Ref")]
-        public TextMeshProUGUI debugLabel;
 
         private GameObject _arPrefabInstantied;
         private GameObject _cubeScreen;
@@ -69,13 +67,12 @@ namespace Components
 
         private void ShowTrackInfo(string name)
         {
-            debugLabel.text = "";
             var runtimeReferenceImageLibrary = arTrackedImageManager.referenceLibrary as MutableRuntimeReferenceImageLibrary;  
-            debugLabel.text += $"TextureFormat.RGBA32 supported: {runtimeReferenceImageLibrary.IsTextureFormatSupported(TextureFormat.RGBA32)}\n";
-            debugLabel.text += $"Supported Texture Count ({runtimeReferenceImageLibrary.supportedTextureFormatCount})\n";
-            
-            debugLabel.text += $"trackedImage.referenceImage.name: {name}\n";
-            debugLabel.text += $"Go in arObjects.Values: {_arPrefabInstantied.name}\n";
+               
+            debugConsole.consoleLabel.Value = $"TextureFormat.RGBA32 supported: {runtimeReferenceImageLibrary.IsTextureFormatSupported(TextureFormat.RGBA32)}";
+            debugConsole.consoleLabel.Value = $"Supported Texture Count ({runtimeReferenceImageLibrary.supportedTextureFormatCount})";         
+            debugConsole.consoleLabel.Value = $"trackedImage.referenceImage.name: {name}";
+            debugConsole.consoleLabel.Value = $"Go in arObjects.Values: {_arPrefabInstantied.name}";
         }
 
         public GameObject CreateCubeForARFoundationTarget(GameObject parentObj, float targetWidth, float targetHeight, Transform trackedImage)
@@ -86,8 +83,8 @@ namespace Components
             cube.GetComponent<Renderer>().material = trackerManagerData.transparentMaterial;
             cube.transform.localPosition = trackedImage.localPosition;
             cube.transform.localScale = new Vector3(targetWidth, 0.001f, targetHeight);
-            debugLabel.text += $"cube.referenceScreen.create: {cube.name}\n";
-            
+
+            debugConsole.consoleLabel.Value = $"cube.referenceScreen.create: {cube.name}"; 
             return cube; 
         }
 

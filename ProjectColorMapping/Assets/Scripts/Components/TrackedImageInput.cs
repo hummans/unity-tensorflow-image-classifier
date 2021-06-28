@@ -13,6 +13,7 @@ public class TrackedImageInput : MonoBehaviour
     [Header("Random")]
     public GameCmdFactory cmdGameFactory;
     public TrackImageManager trackImageManager;
+    public DebugConsole debugConsole;
     public Camera arCamera;
 
     [Header("UI")]
@@ -38,6 +39,7 @@ public class TrackedImageInput : MonoBehaviour
     private void OnClick()
     {     
         trackInput.enabled = false;
+        debugConsole.consoleLabel.Value = $"Go in trackedImageInput.Play (Procces Gateway)";
         trackLabel.text = "[RGB] Capturing colors..";
 
         cmdGameFactory.PlayTurnInput(trackImageManager, imageScreenshoot, _trackers, arCamera).Execute();

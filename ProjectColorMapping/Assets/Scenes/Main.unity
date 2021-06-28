@@ -174,6 +174,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cmdGameFactory: {fileID: 11400000, guid: 6fcdf44a5f90bfb4a8d1665dfe0bcc18, type: 2}
   trackImageManager: {fileID: 11400000, guid: 4f5be5cdf037cd840a2cfad0de661ec1, type: 2}
+  debugConsole: {fileID: 11400000, guid: 07ccb53420469d4439fa8f122cb0796f, type: 2}
   arCamera: {fileID: 1694237588}
   trackInput: {fileID: 1003481427}
   trackLabel: {fileID: 1163748451}
@@ -469,6 +470,7 @@ GameObject:
   - component: {fileID: 715834492}
   - component: {fileID: 715834495}
   - component: {fileID: 715834494}
+  - component: {fileID: 715834493}
   m_Layer: 5
   m_Name: DebugLabel
   m_TagString: Untagged
@@ -495,6 +497,20 @@ RectTransform:
   m_AnchoredPosition: {x: 550.12, y: -782.43}
   m_SizeDelta: {x: 1100.3, y: 782.43}
   m_Pivot: {x: 0.5, y: 0}
+--- !u!114 &715834493
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 715834491}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e0646ec1d32cd643975d4bfe3fcf11f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  debugConsole: {fileID: 11400000, guid: 07ccb53420469d4439fa8f122cb0796f, type: 2}
+  consoleLabel: {fileID: 715834494}
 --- !u!114 &715834494
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -515,7 +531,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Debug.Runtime(Image)
+  m_text: Debug Console Log
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -542,12 +558,12 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 85
+  m_fontSize: 65
   m_fontSizeBase: 85
   m_fontWeight: 400
   m_enableAutoSizing: 1
-  m_fontSizeMin: 50
-  m_fontSizeMax: 85
+  m_fontSizeMin: 65
+  m_fontSizeMax: 65
   m_fontStyle: 0
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
@@ -1750,9 +1766,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   arTrackedImageManager: {fileID: 1208193516}
+  debugConsole: {fileID: 11400000, guid: 07ccb53420469d4439fa8f122cb0796f, type: 2}
   cmdGameFactory: {fileID: 11400000, guid: 6fcdf44a5f90bfb4a8d1665dfe0bcc18, type: 2}
   trackerManagerData: {fileID: 11400000, guid: 4f5be5cdf037cd840a2cfad0de661ec1, type: 2}
-  debugLabel: {fileID: 715834494}
 --- !u!4 &1952593998
 Transform:
   m_ObjectHideFlags: 0
