@@ -6,27 +6,37 @@ using UniRx;
 using UnityEngine.XR.ARFoundation;
 using UnityEngine.XR.ARSubsystems;
 using Infrastructure;
+using Components.Utils;
+using TMPro;
+using UnityEngine.UI;
 
 public class PlayTurnCmd : ICommand
 {
-    private TrackImageManager trackerManager;
-    private float[] srcValue;
-    private Texture2D textureScreenshoot;
-    private readonly PlayTurnGateway playTurnGateway;
+    private readonly TrackImageManager trackImageManager;
+    private readonly RawImage rawImage;
+    private GameObject[] trackers;
+    private Camera arCamera;
+    private PlayTurnGateway playTurnGateway;
 
-    public PlayTurnCmd(TrackImageManager trackerManager, float[] srcValue, Texture2D textureScreenshoot, PlayTurnGateway playTurnGateway)
+    public PlayTurnCmd(TrackImageManager trackImageManager, RawImage rawImage, GameObject[] trackers, Camera arCamera, PlayTurnGateway playTurnGateway)
     {
-        this.trackerManager = trackerManager;
-        this.srcValue = srcValue;
-        this.textureScreenshoot = textureScreenshoot;
+        this.trackImageManager = trackImageManager;
+        this.rawImage = rawImage;
+        this.trackers = trackers;
+        this.arCamera = arCamera;
         this.playTurnGateway = playTurnGateway;
     }
 
     public void Execute()
-    {
-        // Play       
-        playTurnGateway.PlayTurn(trackerManager, srcValue, textureScreenshoot)
-            .Do(_ => Debug.Log("Find results"))
+    {   
+        trackers[0].SetActive(false);
+
+        Texture2D screenShotTex = Screenshot.GetScreenShot(arCamera);
+
+        trackers[0].SetActive(true);
+        rawImage.texture = screenShotTex;
+        
+        playTurnGateway.PlayTurn(trackImageManager, screenShotTex)
             .Subscribe();
     } 
 }

@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using Infrastructure;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.XR.ARFoundation;
 using ViewModel;
 
@@ -12,8 +14,8 @@ public class GameCmdFactory : ScriptableObject
     {
         return new TrackedImageCmd(trackerManager, arPrefab, arTarget);
     }
-    public PlayTurnCmd PlayTurnInput(TrackImageManager trackerManager, float[] srcValue, Texture2D textureScreenshoot)
+    public PlayTurnCmd PlayTurnInput(TrackImageManager trackImageManager, RawImage rawImage, GameObject[] trackers, Camera arCamera)
     {
-        return new PlayTurnCmd(trackerManager, srcValue, textureScreenshoot, new PlayTurnGateway());
+        return new PlayTurnCmd(trackImageManager, rawImage, trackers, arCamera,new PlayTurnGateway());
     }
 }

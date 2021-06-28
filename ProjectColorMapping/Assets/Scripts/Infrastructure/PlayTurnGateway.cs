@@ -9,14 +9,13 @@ namespace Infrastructure
     {
         public string URL_DATA { get; set; }
 
-        public IObservable<Unit> PlayTurn(TrackImageManager trackerManager, float[] srcValue, Texture2D textureScreenshoot)
+        public IObservable<Unit> PlayTurn(TrackImageManager srcValue, Texture2D textureScreenshoot)
         {
-            /*AirarManager.Instance.ProcessColoredMapTexture(textureScreenshoot, srcValue, trackerManager.realWidth, trackerManager.realHeight, (resultTex) =>
+            /*AIRHandler.ProcessColoredMapTexture(textureScreenshoot, srcValue, trackerManager.realWidth, trackerManager.realHeight, (resultTex) =>
             {
-                //drawObj = GameObject.FindGameObjectWithTag("coloring");
-                //drawObj.GetComponent<Renderer>().material.mainTexture = resultTex;
+                drawObj = GameObject.FindGameObjectWithTag("coloring");
+                drawObj.GetComponent<Renderer>().material.mainTexture = resultTex;
             });*/
-
             return Observable.Return(Unit.Default)
                 .Delay(TimeSpan.FromMilliseconds(500));
         }

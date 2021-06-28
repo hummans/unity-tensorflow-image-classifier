@@ -12,10 +12,8 @@ namespace Components.Utils
         private static RenderTexture renderTexture;
         private static Texture2D screenShot;
 
-        public static Texture2D GetScreenShot(GameObject arContents)
+        public static Texture2D GetScreenShot(Camera camera)
         {
-            arContents.SetActive(false);
-
             if (renderTexture == null)
             {
                 int sceenWidth = Screen.width;
@@ -26,7 +24,6 @@ namespace Components.Utils
                 screenShot = new Texture2D(sceenWidth, sceenHeight, TextureFormat.RGB24, false);
             }
 
-            Camera camera = Camera.main;
             camera.targetTexture = renderTexture;
             camera.Render();
 
@@ -46,8 +43,8 @@ namespace Components.Utils
 
             renderTexture = null;
             screenShot = null;
-
-            arContents.SetActive(true);
+            
+            Debug.Log("Screen sucess in: " +  Application.persistentDataPath);
             return tex;
         }
     }

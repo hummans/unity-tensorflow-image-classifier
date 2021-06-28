@@ -8,7 +8,7 @@ using System;
 
 namespace Components
 {
-    public class TrackedImageDisplay : MonoBehaviour
+    public class TrackedImageInformationDisplay : MonoBehaviour
     {
         public ARTrackedImageManager aRTrackedImageManager;
         public TextMeshProUGUI imageTrackedLabel;
