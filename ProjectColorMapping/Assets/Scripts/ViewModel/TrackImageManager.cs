@@ -9,14 +9,11 @@ namespace ViewModel
     {
         [Header("AR Experience")]
         public GameObject arObject;
-        public string arImageTrack;
         public Vector3 arScaleFactor;
 
         [Header("Configuration")]
         public Material transparentMaterial;
         public StringReactiveProperty[] rgbColors;
-        public int realWidth;
-        public int realHeight;
 
         public ISubject<GameObject[]> OnTrackedImageChange = new Subject<GameObject[]>();
     }

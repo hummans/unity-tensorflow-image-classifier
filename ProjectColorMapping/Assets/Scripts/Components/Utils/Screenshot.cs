@@ -1,6 +1,7 @@
 
 using System.IO;
 using UnityEngine;
+using ViewModel;
 
 namespace Components.Utils
 {
@@ -12,7 +13,7 @@ namespace Components.Utils
         private static RenderTexture renderTexture;
         private static Texture2D screenShot;
 
-        public static Texture2D GetScreenShot(Camera camera)
+        public static Texture2D GetScreenShot(Camera camera, DebugConsole debugConsole)
         {
             if (renderTexture == null)
             {
@@ -44,7 +45,7 @@ namespace Components.Utils
             renderTexture = null;
             screenShot = null;
             
-            Debug.Log("Screen sucess in: " +  Application.persistentDataPath);
+            debugConsole.logInput.Value = "Screen sucess in: " +  Application.persistentDataPath;
             return tex;
         }
     }

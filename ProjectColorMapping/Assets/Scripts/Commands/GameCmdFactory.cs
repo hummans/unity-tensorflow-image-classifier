@@ -14,8 +14,8 @@ public class GameCmdFactory : ScriptableObject
     {
         return new TrackedImageCmd(trackerManager, arPrefab, arTarget);
     }
-    public PlayTurnCmd PlayTurnInput(TrackImageManager trackImageManager, RawImage rawImage, GameObject[] trackers, Camera arCamera)
+    public PlayTurnCmd PlayTurnInput(TrackImageManager trackImageManager, Texture2D screenShotTex, string[] scrValues)
     {
-        return new PlayTurnCmd(trackImageManager, rawImage, trackers, arCamera,new PlayTurnGateway());
+        return new PlayTurnCmd(trackImageManager, screenShotTex, scrValues, new PlayTurnGateway());
     }
 }

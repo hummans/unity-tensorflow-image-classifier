@@ -69,10 +69,10 @@ namespace Components
         {
             var runtimeReferenceImageLibrary = arTrackedImageManager.referenceLibrary as MutableRuntimeReferenceImageLibrary;  
                
-            debugConsole.consoleLabel.Value = $"TextureFormat.RGBA32 supported: {runtimeReferenceImageLibrary.IsTextureFormatSupported(TextureFormat.RGBA32)}";
-            debugConsole.consoleLabel.Value = $"Supported Texture Count ({runtimeReferenceImageLibrary.supportedTextureFormatCount})";         
-            debugConsole.consoleLabel.Value = $"trackedImage.referenceImage.name: {name}";
-            debugConsole.consoleLabel.Value = $"Go in arObjects.Values: {_arPrefabInstantied.name}";
+            debugConsole.logInput.Value = $"TextureFormat.RGBA32 supported: {runtimeReferenceImageLibrary.IsTextureFormatSupported(TextureFormat.RGBA32)}";
+            debugConsole.logInput.Value = $"Supported Texture Count ({runtimeReferenceImageLibrary.supportedTextureFormatCount})";         
+            debugConsole.logInput.Value = $"trackedImage.referenceImage.name: {name}";
+            debugConsole.logInput.Value = $"Go in arObjects.Values: {_arPrefabInstantied.name}";
         }
 
         public GameObject CreateCubeForARFoundationTarget(GameObject parentObj, float targetWidth, float targetHeight, Transform trackedImage)
@@ -84,7 +84,7 @@ namespace Components
             cube.transform.localPosition = trackedImage.localPosition;
             cube.transform.localScale = new Vector3(targetWidth, 0.001f, targetHeight);
 
-            debugConsole.consoleLabel.Value = $"cube.referenceScreen.create: {cube.name}"; 
+            debugConsole.logInput.Value = $"cube.referenceScreen.create: {cube.name}"; 
             return cube; 
         }
 

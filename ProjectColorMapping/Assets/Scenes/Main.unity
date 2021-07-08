@@ -172,10 +172,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e16a9a5afec6774eb3d503bfa296d11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  trackedImageManager: {fileID: 1208193516}
+  _runtimeImageLibrary: {fileID: 11400000, guid: 03ac651d1a7ac844c9b266d1baf4c7da, type: 2}
+  arCamera: {fileID: 1694237588}
   cmdGameFactory: {fileID: 11400000, guid: 6fcdf44a5f90bfb4a8d1665dfe0bcc18, type: 2}
   trackImageManager: {fileID: 11400000, guid: 4f5be5cdf037cd840a2cfad0de661ec1, type: 2}
   debugConsole: {fileID: 11400000, guid: 07ccb53420469d4439fa8f122cb0796f, type: 2}
-  arCamera: {fileID: 1694237588}
   trackInput: {fileID: 1003481427}
   trackLabel: {fileID: 1163748451}
   imageScreenshoot: {fileID: 1873059459}
@@ -562,7 +564,7 @@ MonoBehaviour:
   m_fontSizeBase: 85
   m_fontWeight: 400
   m_enableAutoSizing: 1
-  m_fontSizeMin: 65
+  m_fontSizeMin: 45
   m_fontSizeMax: 65
   m_fontStyle: 0
   m_HorizontalAlignment: 2
@@ -1104,8 +1106,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4dea56a9eaadd1c439095de4f9a371cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_SerializedLibrary: {fileID: 11400000, guid: 03ac651d1a7ac844c9b266d1baf4c7da, type: 2}
-  m_MaxNumberOfMovingImages: 2
+  m_SerializedLibrary: {fileID: 0}
+  m_MaxNumberOfMovingImages: 1
   m_TrackedImagePrefab: {fileID: 0}
 --- !u!1 &1346134572
 GameObject:
@@ -1675,13 +1677,14 @@ GameObject:
   - component: {fileID: 1873059457}
   - component: {fileID: 1873059460}
   - component: {fileID: 1873059459}
+  - component: {fileID: 1873059458}
   m_Layer: 5
-  m_Name: RawImage
+  m_Name: CurrentImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1873059457
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1701,6 +1704,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 553.768, y: 553.768}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1873059458
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1873059456}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77e064bb876dfcd4bbb7e06de265d007, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1873059459
 MonoBehaviour:
   m_ObjectHideFlags: 0

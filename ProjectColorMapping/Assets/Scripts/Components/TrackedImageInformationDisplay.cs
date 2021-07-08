@@ -21,6 +21,11 @@ namespace Components
                 idTrackedLabel.text = "[ Id tracked: " + trackImage.trackableId + "] ";
                 imageTrackedLabel.text = "[ Image tracked: " + trackImage.referenceImage.name + "]";
             }
+            foreach(var trackImage in args.updated)
+            {
+                idTrackedLabel.text = "[ Id tracked: " + trackImage.trackableId + "] ";
+                imageTrackedLabel.text = "[ Image tracked: " + trackImage.referenceImage.name + "]";
+            }
         }
         
         void OnEnable()

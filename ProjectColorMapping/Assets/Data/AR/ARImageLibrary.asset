@@ -16,12 +16,12 @@ MonoBehaviour:
   m_GuidHigh: 8226116480929419146
   m_Images:
   - m_SerializedGuid:
-      m_GuidLow: 5236817509607037680
-      m_GuidHigh: 17016683775084561327
+      m_GuidLow: 5062990447760340458
+      m_GuidHigh: 18112833821262150794
     m_SerializedTextureGuid:
-      m_GuidLow: 6333238712297532672
-      m_GuidHigh: 2075004025469843594
-    m_Size: {x: 0.3, y: 0.375}
+      m_GuidLow: 13453630464547558125
+      m_GuidHigh: 7816866344457412424
+    m_Size: {x: 0.3, y: 0.5044445}
     m_SpecifySize: 1
-    m_Name: instagram
+    m_Name: myprofile
     m_Texture: {fileID: 0}
