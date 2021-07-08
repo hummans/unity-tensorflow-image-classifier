@@ -16,9 +16,9 @@ public class DebugConsoleDisplay : MonoBehaviour
     void Start()
     {
         _current = debugConsole.maxToDisplay;
-        debugConsole.consoleLabel.Value = "";
+        debugConsole.logInput.Value = "";
 
-        debugConsole.consoleLabel
+        debugConsole.logInput
             .Subscribe(OnConsoleChange)
             .AddTo(this);
     }
@@ -34,6 +34,11 @@ public class DebugConsoleDisplay : MonoBehaviour
         {
             _current++;
             consoleLabel.text += value + "\n";
+        }
+
+        if(value != "")
+        {
+            Debug.Log(value);
         }
     }
 }

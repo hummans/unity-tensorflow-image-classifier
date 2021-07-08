@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7269ab5501320b49a1c8c202673ed1e, type: 3}
   m_Name: DebugConsole
   m_EditorClassIdentifier: 
-  consoleLabel:
+  logInput:
     value: 
-  maxToDisplay: 10
+  maxToDisplay: 14
