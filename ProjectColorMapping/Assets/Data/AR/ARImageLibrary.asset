@@ -16,12 +16,12 @@ MonoBehaviour:
   m_GuidHigh: 8226116480929419146
   m_Images:
   - m_SerializedGuid:
-      m_GuidLow: 5062990447760340458
-      m_GuidHigh: 18112833821262150794
+      m_GuidLow: 5634019463334306777
+      m_GuidHigh: 11628316789542572969
     m_SerializedTextureGuid:
       m_GuidLow: 13453630464547558125
       m_GuidHigh: 7816866344457412424
     m_Size: {x: 0.3, y: 0.5044445}
     m_SpecifySize: 1
-    m_Name: myprofile
+    m_Name: nametag
     m_Texture: {fileID: 0}

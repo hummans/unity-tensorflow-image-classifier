@@ -14,6 +14,9 @@ namespace Components
         public TextMeshProUGUI imageTrackedLabel;
         public TextMeshProUGUI idTrackedLabel;
 
+        void Start() => aRTrackedImageManager.trackedImagesChanged += OnImageChange;
+        void OnDisable() => aRTrackedImageManager.trackedImagesChanged -= OnImageChange;
+        
         private void OnImageChange(ARTrackedImagesChangedEventArgs args)
         {
             foreach(var trackImage in args.added)
@@ -26,15 +29,11 @@ namespace Components
                 idTrackedLabel.text = "[ Id tracked: " + trackImage.trackableId + "] ";
                 imageTrackedLabel.text = "[ Image tracked: " + trackImage.referenceImage.name + "]";
             }
-        }
-        
-        void OnEnable()
-        {
-            aRTrackedImageManager.trackedImagesChanged += OnImageChange;
-        }
-        void OnDisable()
-        {
-            aRTrackedImageManager.trackedImagesChanged -= OnImageChange;
+            foreach(var trackImage in args.removed)
+            {
+                idTrackedLabel.text = "[ Id tracked: None ] ";
+                imageTrackedLabel.text = "[ Image tracked: None ]";
+            }
         }
     }
 }
