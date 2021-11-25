@@ -40,7 +40,7 @@ namespace Infrastructure
                 observer.OnCompleted();
                 yield break;
             }    
-
+            
             JSONNode S3Url = JSON.Parse(wwwGetPostUrl.downloadHandler.text);
             string POST_URL = S3Url["url"];
             Debug.Log($"[PlayTurnGateway] S3 Post Url is {POST_URL}");
@@ -50,7 +50,7 @@ namespace Infrastructure
             string file_name = fields["key"];
 
             Debug.Log($"New file uploading name is {file_name}");
-
+            /*
             WWWForm form = AWSWebFormBuilder.BuildUploadRequest(fields, textureScreenshoot, file_name);
 
             UnityWebRequest wwwPostImage = UnityWebRequest.Post(POST_URL, form);
@@ -65,9 +65,9 @@ namespace Infrastructure
                 observer.OnCompleted();
                 yield break;
             }    
-
-/*
-            JSONNode pokeInfo = JSON.Parse(pokeInfoRequest.downloadHandler.text);
+            */
+      
+            /*JSONNode pokeInfo = JSON.Parse(pokeInfoRequest.downloadHandler.text);
 
             string pokeName = pokeInfo["name"];
             string pokeSpriteUrl = pokeInfo["sprites"]["front_default"];
@@ -80,9 +80,10 @@ namespace Infrastructure
             }
 
             UnityWebRequest pokeSpriteRequest = UnityWebRequestTexture.GetTexture(pokeSpriteUrl);
-            yield return pokeSpriteRequest.SendWebRequest();
-*/
-            ColorObject colorObject = GenerateColor(5);
+            yield return pokeSpriteRequest.SendWebRequest();*/
+            
+            
+            ColorObject colorObject = GenerateType(5);
 
             trackData.ColorObject.Value = colorObject;
             Debug.Log($"[RGB] One is {colorObject.Colors[0]}");
@@ -91,21 +92,22 @@ namespace Infrastructure
             observer.OnCompleted();
         }
         
-        private ColorObject GenerateColor(int count)
+        private ColorObject GenerateType(int count)
         {
             List<Color> colors = new List<Color>();
 
             for (int i = 0; i < count; i++)
             {
-                byte r = Convert.ToByte(Random.Range(0,255));
-                byte g = Convert.ToByte(Random.Range(0,255));
-                byte b = Convert.ToByte(Random.Range(0,255));
+                byte r = Convert.ToByte(Random.Range(0,256));
+                byte g = Convert.ToByte(Random.Range(0,256));
+                byte b = Convert.ToByte(Random.Range(0,256));
 
                 colors.Add(new Color32(r, g, b, 255));    
             }
 
             return new ColorObject
             {
+                objectId = Random.Range(1,4),
                 Colors = colors
             };
         }

@@ -34,23 +34,32 @@ public class PlayTurnCmd : ICommand
 
     public void Execute()
     {       
-        PlayCapture()
-        .Do(texture => CaptureColors(texture))
-            .Subscribe();
+        List<Texture2D> textures = GetTexture();
+        CaptureTypeProcess(textures[0], textures[1]);
     }
 
-    private IObservable<Texture2D> PlayCapture()
+    private List<Texture2D> GetTexture()
     {
+        trackData.ARTrackedEnable.Value = false;
         trackData.currentTrackLabel.Value = "[Play] Capturing Image..";
 
         Texture2D screenShotTex = Screenshot.GetScreenShot(arCamera, debugConsole);
         Texture2D textureCrop = Screenshot.Save(Screenshot.ResampleAndCrop(screenShotTex, trackData.widthTexture, trackData.heightTexture));
         trackData.currentScreenshoot.Value = screenShotTex;
 
-        return Observable.FromCoroutine<Texture2D>((observer, cancellationToke) => AddImageJob(textureCrop, screenShotTex, 0.3f, observer, cancellationToke));
+        return new List<Texture2D>{
+            textureCrop,
+            screenShotTex
+        };
+    }
+
+    private IObservable<Unit> AddImageRuntimeLibrary(Texture2D textureCrop, Texture2D screenShotTex)
+    {
+        return Observable.FromCoroutine<Unit>((observer, cancellationToke) => AddImageJob(textureCrop, screenShotTex, 0.3f, observer, cancellationToke));
     }  
            
-    public IEnumerator AddImageJob(Texture2D textureCrop, Texture2D texture2D, float widthInMeters, IObserver<Texture2D> observer, CancellationToken cancellationToken)
+    public IEnumerator AddImageJob(Texture2D textureCrop, Texture2D texture2D, float widthInMeters, 
+    IObserver<Unit> observer, CancellationToken cancellationToken)
     {
         yield return null;
 
@@ -98,7 +107,7 @@ public class PlayTurnCmd : ICommand
             {
                 debugConsole.logInput.Value = "trackedImageManager.referenceLibrary is not Mutable";
             }          
-            observer.OnNext(textureCrop);
+            observer.OnNext(Unit.Default);
             observer.OnCompleted();
         }
         catch(Exception e)
@@ -112,15 +121,22 @@ public class PlayTurnCmd : ICommand
             Debug.Log($"Error: {e.ToString()}");
         }
     }
-    private void CaptureColors(Texture2D textureCaptured)
+
+    private void CaptureTypeProcess(Texture2D textureCrop, Texture2D screenShotTex)
     {
         // Find colors in the image   
         trackData.currentTrackActive.Value = false;
+        debugConsole.logInput.Value = $"Play input received!";
         debugConsole.logInput.Value = $"We are in process to connect server in tracked gateway!";
         trackData.currentTrackLabel.Value = "[RGB] Capturing colors..";
 
-        playTurnGateway.PlayTurn(trackData, textureCaptured)
-            .Do(_ => ResetInput())
+        playTurnGateway.PlayTurn(trackData, textureCrop)
+            .Do(_ => 
+                    AddImageRuntimeLibrary(textureCrop, screenShotTex)
+                        .Do(_ => trackData.ARTrackedEnable.Value = true)
+                        .Do(_ => ResetInput())
+                        .Subscribe()
+            )
             .Subscribe();
     }
 

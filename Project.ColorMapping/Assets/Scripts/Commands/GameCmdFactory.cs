@@ -11,10 +11,6 @@ using ViewModel;
 [CreateAssetMenu(fileName = "New Game Command Factory", menuName = "Command Factory/Game")]
 public class GameCmdFactory : ScriptableObject
 {
-    public TrackedImageCmd TrackedImageChange(TrackManager trackerManager, GameObject arPrefab, GameObject arTarget)
-    {
-        return new TrackedImageCmd(trackerManager, arPrefab, arTarget);
-    }
     public PlayTurnCmd PlayTurnInput(ARTrackedImageManager trackedImageManager, Camera arCamera, 
                                         DebugConsole debugConsole, TrackManager trackImageManagerData)
     {

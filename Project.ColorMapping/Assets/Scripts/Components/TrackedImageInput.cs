@@ -23,9 +23,8 @@ namespace Components
 
         [Header("Data")]
         public GameCmdFactory gameCmdFactory;
-        public TrackManager trackImageManagerData;
+        public TrackManager trackData;
         public DebugConsole debugConsole;
-        public Button trackInput;
 
         private GameObject[] _trackers;
 
@@ -36,16 +35,15 @@ namespace Components
             var lib = trackedImageManager.CreateRuntimeLibrary(_runtimeImageLibrary);
             trackedImageManager.referenceLibrary = lib;
             trackedImageManager.requestedMaxNumberOfMovingImages = _maxNumberOfImages;
-            trackedImageManager.enabled = true;
 
-            trackImageManagerData.OnTrackedImageChange
+            trackData.OnTrackedImageChange
                 .Subscribe(OnTrackedImageChange)
                 .AddTo(this);
         }
 
         public void OnClick()
         {
-            gameCmdFactory.PlayTurnInput(trackedImageManager, arCamera, debugConsole, trackImageManagerData).Execute();
+            gameCmdFactory.PlayTurnInput(trackedImageManager, arCamera, debugConsole, trackData).Execute();
         }
         
         private void OnTrackedImageChange(GameObject[] _trackers)

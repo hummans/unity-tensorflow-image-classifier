@@ -8,8 +8,9 @@ namespace ViewModel
     public class TrackManager : ScriptableObject
     {
         [Header("AR Experience")]
-        public GameObject ARObject;
+        public GameObject[] ARObjectPrefab;
         public Vector3 ARScaleFactor;
+        public BoolReactiveProperty ARTrackedEnable;
 
         [Header("Configuration")]
         public Material transparentMaterial;
@@ -24,5 +25,6 @@ namespace ViewModel
 
         public ReactiveProperty<ColorObject> ColorObject;
         public ISubject<GameObject[]> OnTrackedImageChange = new Subject<GameObject[]>();
+
     }
 }

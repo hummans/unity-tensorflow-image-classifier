@@ -12,8 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9ec6aa80df95f24e8d66de17ed30281, type: 3}
   m_Name: TrackManager
   m_EditorClassIdentifier: 
-  ARObject: {fileID: 2431970225005740307, guid: 8a128cf2b55bd724d87c6dfa6e7a70b3, type: 3}
+  ARObjectPrefab:
+  - {fileID: 3751314188262578064, guid: 43cd93ad3535f1741a279b21b778b605, type: 3}
+  - {fileID: 2437345510069296462, guid: 9d115d343ebf2f64c93ceffbd97df35d, type: 3}
+  - {fileID: 3391871116042938043, guid: 01b3fe246f631d24f94ebe728e938101, type: 3}
   ARScaleFactor: {x: 0.3, y: 0.3, z: 0.3}
+  ARTrackedEnable:
+    value: 0
   transparentMaterial: {fileID: 2100000, guid: c1ad277982e4b0d43b77604130bdf22f, type: 2}
   rgbColors:
   - value: 255

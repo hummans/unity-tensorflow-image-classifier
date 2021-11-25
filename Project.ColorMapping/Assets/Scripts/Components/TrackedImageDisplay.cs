@@ -19,8 +19,8 @@ namespace Components
             trackImageManager.widthTexture = rawImage.texture.width;
             trackImageManager.heightTexture = rawImage.texture.height;
             
-            Debug.Log($"Width of screenshoot is {trackImageManager.widthTexture}");
-            Debug.Log($"Height of screenshoot is {trackImageManager.heightTexture}");
+            //Debug.Log($"Width of screenshoot is {trackImageManager.widthTexture}");
+            //Debug.Log($"Height of screenshoot is {trackImageManager.heightTexture}");
 
             trackImageManager.currentScreenshoot
                 .Subscribe(OnScreenshoot)

@@ -23,5 +23,5 @@ MonoBehaviour:
       m_GuidHigh: 7816866344457412424
     m_Size: {x: 0, y: 0}
     m_SpecifySize: 0
-    m_Name: Default-Checker-Mati
+    m_Name: default
     m_Texture: {fileID: 0}
