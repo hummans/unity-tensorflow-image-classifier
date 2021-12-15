@@ -1,0 +1,1 @@
+{"event_sample_image": "{\"routeKey\": \"GET /classify\", \"pathParameters\": {}, \"body\": {}, \"queryStringParameters\": {\"image_url\": \"https://es.acervolima.com/wp-content/uploads/2021/09/acervo-lima-logo-250x28.png\"}}"}
