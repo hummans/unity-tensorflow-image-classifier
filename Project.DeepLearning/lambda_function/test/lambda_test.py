@@ -1,7 +1,7 @@
 import json
 
 from lambda_function.lambda_function import lambda_handler
-from lambda_handlers.response.wrapper import *
+from package.lambda_handlers.response.wrapper import *
 
 from typing import NewType
 

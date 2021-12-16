@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9ec6aa80df95f24e8d66de17ed30281, type: 3}
+  m_Name: TrackManager
+  m_EditorClassIdentifier: 
+  ARObjectPrefab:
+  - {fileID: 3751314188262578064, guid: 43cd93ad3535f1741a279b21b778b605, type: 3}
+  - {fileID: 2437345510069296462, guid: 9d115d343ebf2f64c93ceffbd97df35d, type: 3}
+  ARTrackedEnable:
+    value: 0
+  transparentMaterial: {fileID: 2100000, guid: c1ad277982e4b0d43b77604130bdf22f, type: 2}
+  rgbColors:
+  - value: 255
+  - value: 255
+  - value: 255
+  widthTexture: 64
+  heightTexture: 64
+  currentTrackLabel:
+    value: Play Capture
+  currentTrackActive:
+    value: 1
+  currentScreenshoot:
+    value: {fileID: 0}
+  currentModelId:
+    value: 0
