@@ -14,7 +14,7 @@
   </div>
   
   <p align="center"> <br />
-This repository contains an interactive augmented reality application developed in Unity that uses a neural network hosted on AWS to identify the image and the colors respectively, and thus display a representation model of that image in augmented reality. <br />
+This repository contains an interactive augmented reality application developed in Unity that uses a neural network hosted on AWS to identify the image and colors. Once classified, the classified object in the image is shown on stage using AR Foundation augmented reality markers (ARCore - ARKit). <br />
   </p>
     
   </p>
