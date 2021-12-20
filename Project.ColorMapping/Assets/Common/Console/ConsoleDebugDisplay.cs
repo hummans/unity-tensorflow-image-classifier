@@ -16,23 +16,50 @@ public class ConsoleDebugDisplay : MonoBehaviour
     void Awake() 
     {
         _current = debugConsole.maxToDisplay;
+
         debugConsole.logInput.Value = new LogData(){
-            type = "",
+            type = LogType.Log,
             body = ""
         };
-    }
 
-    void Start()
-    {
         debugConsole.logInput
             .Subscribe(OnConsoleChange)
-            .AddTo(this);
+            .AddTo(this); 
     }
+
 
     private void OnConsoleChange(LogData logData)
     {
-        string type = logData.type;
-        string log = $"[{type}] " + logData.body;
+        if(logData.body == "")
+            return;
+        
+        switch(logData.type)
+        {
+            case LogType.Error:
+            {
+                if(debugConsole.showLogError)
+                    ShowLog(logData);
+                break;
+            }
+            case LogType.Warning:
+            {
+                if(debugConsole.showLogWarning)
+                    ShowLog(logData);
+                break;
+            }
+            case LogType.Log:
+            {
+                if(debugConsole.showLogMessage)
+                    ShowLog(logData);
+                break;
+            }
+        }
+    }
+
+    void ShowLog(LogData logData)
+    {
+        string type = logData.type.ToString();
+        string log = $"[{type.Substring(0,1).ToUpper()}][{logData.time}] " + logData.body;
         string current = consoleLabel.text;
 
         if(_current == debugConsole.maxToDisplay)

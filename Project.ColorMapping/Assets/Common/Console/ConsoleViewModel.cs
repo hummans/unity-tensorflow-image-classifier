@@ -10,5 +10,8 @@ namespace ViewModel
     {
         public ReactiveProperty<LogData> logInput = new ReactiveProperty<LogData>();
         public int maxToDisplay;
+        public bool showLogMessage;
+        public bool showLogError;
+        public bool showLogWarning;
     }
 }

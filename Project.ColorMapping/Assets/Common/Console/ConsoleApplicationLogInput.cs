@@ -2,6 +2,7 @@
  using System.Collections;
 using Managers;
 using TMPro;
+using System;
 
 public class ConsoleApplicationLogInput : MonoBehaviour
 {
@@ -10,11 +11,9 @@ public class ConsoleApplicationLogInput : MonoBehaviour
    
    private void OnLogHandler(string logString, string stackTrace, LogType type)
    {
-       if(type == LogType.Warning)
-            return;
-       
        ConsoleClass.Instance.consoleData.logInput.Value = new LogData{
-           type = type.ToString(),
+           time = DateTime.Now.ToString("HH:mm:ss"),
+           type = type,
            body = logString
        };
    }

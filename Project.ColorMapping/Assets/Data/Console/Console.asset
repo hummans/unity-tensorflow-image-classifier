@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7269ab5501320b49a1c8c202673ed1e, type: 3}
   m_Name: Console
   m_EditorClassIdentifier: 
-  logInput:
-    value: Reseting play input button!
-  maxToDisplay: 100
+  maxToDisplay: 20
+  showLogMessage: 1
+  showLogError: 0
+  showLogWarning: 0

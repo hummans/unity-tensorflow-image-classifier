@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class LogData 
 {
-    public string type;    
+    public string time;
+    public LogType type;    
     public string body;
 }
