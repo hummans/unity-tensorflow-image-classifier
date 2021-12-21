@@ -2,11 +2,11 @@
   
   <div align="center">
 
-  [![GitHub release (latest by date)](https://img.shields.io/github/v/release/matiasvallejosdev/unity-tensorflow-image-classifier?color=4cc51e)](https://github.com/matiasvallejosdev/AR-Covid-Interactive)
-  [![GitHub top language](https://img.shields.io/github/languages/top/matiasvallejosdev/unity-tensorflow-image-classifier?color=1081c2)](https://github.com/matiasvallejosdev/AR-Covid-Interactive/search?l=c%23)
-  [![GitHub Watchers](https://img.shields.io/github/watchers/matiasvallejosdev/unity-tensorflow-image-classifier?color=4cc51e)](https://github.com/matiasvallejosdev/AR-Covid-Interactive/watchers)
-  [![GitHub Repo stars](https://img.shields.io/github/stars/matiasvallejosdev/unity-tensorflow-image-classifier?color=4cc51e)](https://github.com/matiasvallejosdev/AR-Covid-Interactive/stargazers)
-  [![GitHub Forks](https://img.shields.io/github/forks/matiasvallejosdev/unity-tensorflow-image-classifier?color=4cc51e)](https://github.com/matiasvallejosdev/AR-Covid-Interactive/network/members)
+  [![GitHub release (latest by date)](https://img.shields.io/github/v/release/matiasvallejosdev/unity-tensorflow-image-classifier?color=4cc51e)](https://github.com/matiasvallejosdev/unity-tensorflow-image-classifier)
+  [![GitHub top language](https://img.shields.io/github/languages/top/matiasvallejosdev/unity-tensorflow-image-classifier?color=1081c2)](https://github.com/matiasvallejosdev/unity-tensorflow-image-classifier/search?l=c%23)
+  [![GitHub Watchers](https://img.shields.io/github/watchers/matiasvallejosdev/unity-tensorflow-image-classifier?color=4cc51e)](https://github.com/matiasvallejosdev/unity-tensorflow-image-classifier/watchers)
+  [![GitHub Repo stars](https://img.shields.io/github/stars/matiasvallejosdev/unity-tensorflow-image-classifier?color=4cc51e)](https://github.com/matiasvallejosdev/unity-tensorflow-image-classifier/stargazers)
+  [![GitHub Forks](https://img.shields.io/github/forks/matiasvallejosdev/unity-tensorflow-image-classifier?color=4cc51e)](https://github.com/matiasvallejosdev/unity-tensorflow-image-classifier/network/members)
   <br />
   [![Unity Badge](http://img.shields.io/badge/-Unity3D_2020.3.5f1-000?logo=unity&link=https://unity.com/)](https://unity.com/)
   [![made-for-VSCode](https://img.shields.io/badge/Made%20for-VSCode-1f425f.svg)](https://code.visualstudio.com/)
