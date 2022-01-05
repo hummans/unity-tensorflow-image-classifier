@@ -24,7 +24,10 @@ This repository contains an interactive augmented reality application developed 
 
 - [Table of Contents](#table-of-contents)
 - [Installation](#installation)
+- [Arquitecture](#arquitecture)
 - [Contributing](#contributing)
+- [Screenshoot](#screenshoot)
+- [Data Source](#data-source)
 - [Credits](#credits)
 - [Thanks](#thanks)
 
@@ -33,13 +36,50 @@ This repository contains an interactive augmented reality application developed 
 ```
     git clone https://github.com/matiasvallejosdev/unity-tensorflow-image-classifier
 ```
-　2. Importing dependences<br />
-```
-　　You can use project requeriments to start!
-```
+## Arquitecture
+
+EFS to store deep learning (DL) framework libraries and models to load from Lambda to execute inferences. We provide a code example on executing serverless inferences with TensorFlow 2.
+
+### Diagram
+This is a picture of the servereless machine learning inference architecture and the execution flow.
+
+![Diagram](https://github.com/matiasvallejosdev/unity-tensorflow-image-classifier/blob/main/Project.Backend/docs/Serverless_Diagram.png?raw=true)
+
+You can access to more information in this [article](https://aws.amazon.com/blogs/compute/building-deep-learning-inference-with-aws-lambda-and-amazon-efs/) developed by [James Beswick](https://aws.amazon.com/blogs/compute/author/jbeswick/).
+### Prerequisites
+
+1. Storing the deep learning libraries and model on Amazon EFS
+2. Creating a Lambda function for inference
+
+## Screenshoot
+Ar Application Screenshoot on Android Device.
+<p>
+  <p>
+    <a rel="nofollow">
+    <img src="" width="200">
+    </a>
+    <a rel="nofollow">
+    <img src="" width="200">
+    </a>
+    <a rel="nofollow">
+    <img src="" width="200">
+    </a>
+  </p>
+
+## Data Source
+
+The algorithm used is based on the data from the Kaggle competition. The following [dataset](https://www.kaggle.com/c/dogs-vs-cats/data) were used:
+- test1.zip
+- train.zip
+
+
+It also bases the algorithm designed under the name [AlexNet](https://en.wikipedia.org/wiki/AlexNet) mounted on Tensorflow.
+
+
+
 ## Contributing
 
-* Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are greatly appreciated. <br /><br />
+Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are greatly appreciated. <br /><br />
 　1.　Fork the Project. <br />
 　2.　Create your Feature Branch. <br />
 　3.　Commit your Changes. <br />
