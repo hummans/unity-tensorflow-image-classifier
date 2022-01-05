@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1b23d841a4df5342a19c2f91d327e8e, type: 3}
   m_Name: Cat
   m_EditorClassIdentifier: 
-  objectId: 1
+  objectId: 0
   objectName: Cat
   objectScale: {x: 0, y: 0, z: 0}

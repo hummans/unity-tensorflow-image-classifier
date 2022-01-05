@@ -1,6 +1,7 @@
 using UniRx;
 using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine.XR.ARSubsystems;
 
 namespace ViewModel
 {
@@ -10,6 +11,9 @@ namespace ViewModel
         [Header("AR Experience")]
         public GameObject[] ARObjectPrefab;
         public BoolReactiveProperty ARTrackedEnable;
+        public int maxNumberOfImages;
+        public XRReferenceImageLibrary runtimeImageLibrary;
+
 
         [Header("Configuration")]
         public DeepLearningConfig deepLearningConfig;
@@ -18,8 +22,8 @@ namespace ViewModel
 
         [Header("Runtime")]
         public StringReactiveProperty currentTrackLabel;
-        public BoolReactiveProperty currentTrackActive;
+        public BoolReactiveProperty currentTrackInterfaceActive;
         public ReactiveProperty<Texture> currentTrackScreenshoot = new ReactiveProperty<Texture>();
-        public IntReactiveProperty currentRecognition;
+        public ReactiveProperty<RecognitionResponse> currentRecognition = new ReactiveProperty<RecognitionResponse>();
     }
 }

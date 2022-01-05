@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RotateObject : MonoBehaviour
+public class LookAtCamera : MonoBehaviour
 {
     private Camera cameraTarget;
     private Quaternion _offset;

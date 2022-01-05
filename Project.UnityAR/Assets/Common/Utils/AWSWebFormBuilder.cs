@@ -24,21 +24,7 @@ public static class AWSWebFormBuilder
         form.AddField("policy", policy);
         form.AddField("x-amz-signature", fields["x-amz-signature"].ToString());
         form.AddBinaryData("file", image, file_name, $"image/{encode}");
-
+        
         return form;
     }
-
-    /*
-        List<IMultipartFormSection> formData = new List<IMultipartFormSection>();
-        formData.Add(new MultipartFormDataSection(@$"
-        key={fields["key"]}&
-        x-amz-algorithm=bar={fields["x-amz-algorithm"]}&
-        x-amz-credential={fields["x-amz-credential"]}&
-        x-amz-date= {fields["x-amz-date"]}&
-        x-amz-security-token = {fields["x-amz-security-token"]}&
-        policy = {fields["policy"]}&
-        x-amz-signature = {fields["x-amz-signature"]}&
-        "));
-        formData.Add(new MultipartFormFileSection("my file data", "myfile.txt"));
-    */
  }

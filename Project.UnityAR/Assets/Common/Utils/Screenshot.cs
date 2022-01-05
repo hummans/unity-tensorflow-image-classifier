@@ -13,7 +13,7 @@ namespace Components.Utils
         private static RenderTexture renderTexture;
         private static Texture2D screenShot;
 
-        public static Texture2D GetScreenShot(Camera camera, ConsoleViewModel debugConsole)
+        public static Texture2D GetScreenShot(Camera camera)
         {
             if (renderTexture == null)
             {

@@ -17,29 +17,25 @@ namespace Components
     {
         [Header("AR")]
         public ARTrackedImageManager trackedImageManager;
-        public XRReferenceImageLibrary _runtimeImageLibrary;
-        public int _maxNumberOfImages;
         public Camera arCamera;
 
         [Header("Data")]
         public GameCmdFactory gameCmdFactory;
         public TrackManagerViewModel trackData;
-        public ViewModel.ConsoleViewModel debugConsole;
 
-        private GameObject[] _trackers;
 
         void Awake()
         {
             Debug.Log("Creating Runtime Mutable Image Library");
             
-            var lib = trackedImageManager.CreateRuntimeLibrary(_runtimeImageLibrary);
+            var lib = trackedImageManager.CreateRuntimeLibrary(trackData.runtimeImageLibrary);
             trackedImageManager.referenceLibrary = lib;
-            trackedImageManager.requestedMaxNumberOfMovingImages = _maxNumberOfImages;
+            trackedImageManager.requestedMaxNumberOfMovingImages = trackData.maxNumberOfImages;
         }
 
         public void OnClick()
         {
-            gameCmdFactory.PlayTurnInput(trackedImageManager, arCamera, debugConsole, trackData).Execute();
+            gameCmdFactory.PlayTurnInput(trackedImageManager, arCamera, trackData).Execute();
         }
     }
 }

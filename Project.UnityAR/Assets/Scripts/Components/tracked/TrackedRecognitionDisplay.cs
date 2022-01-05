@@ -20,31 +20,38 @@ namespace Components
 
         void Start()
         {
-            trackImageManager.currentRecognition.Value = -1;
+            trackImageManager.currentRecognition.Value = new RecognitionResponse(){
+                prediction = 0,
+                label = "None",
+                accuracy = 0f
+            };
             trackImageManager.currentRecognition
                 .Subscribe(OnRecognition)
                 .AddTo(this);
         }
 
-        private void OnRecognition(int i)
+        private void OnRecognition(RecognitionResponse response)
         {
-            if(i > trackImageManager.deepLearningConfig.recognitionResponse.Length - 1 || i == -1)
+            if(response.label == "None")
                 return;
             
-            string value = trackImageManager.deepLearningConfig.recognitionResponse[i];
+            string value = trackImageManager.deepLearningConfig.recognitionResponse[response.prediction];
             string text = _defaultText + $" {value}";
 
             recognitionLabel.text = text;
 
             animator.SetTrigger("Open");
-
             Invoke("OffLabel", 3);
         }
 
         private void OffLabel()
         {
             recognitionLabel.text = "...";
-            trackImageManager.currentRecognition.Value = -1;
+            trackImageManager.currentRecognition.Value = new RecognitionResponse(){
+                prediction = 0,
+                label = "None",
+                accuracy = 0f
+            };
         }
     }
 }

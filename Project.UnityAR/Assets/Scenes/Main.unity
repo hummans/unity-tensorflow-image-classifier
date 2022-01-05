@@ -828,12 +828,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   trackedImageManager: {fileID: 1208193516}
-  _runtimeImageLibrary: {fileID: 11400000, guid: 347179d51b7e90b4a93e45c0080a3ca6, type: 2}
-  _maxNumberOfImages: 2
   arCamera: {fileID: 1694237588}
   gameCmdFactory: {fileID: 11400000, guid: 6fcdf44a5f90bfb4a8d1665dfe0bcc18, type: 2}
   trackData: {fileID: 11400000, guid: 4f5be5cdf037cd840a2cfad0de661ec1, type: 2}
-  debugConsole: {fileID: 11400000, guid: 07ccb53420469d4439fa8f122cb0796f, type: 2}
 --- !u!114 &1003481431
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -847,7 +844,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   trackImageManager: {fileID: 11400000, guid: 4f5be5cdf037cd840a2cfad0de661ec1, type: 2}
-  debugConsole: {fileID: 11400000, guid: 07ccb53420469d4439fa8f122cb0796f, type: 2}
   trackInput: {fileID: 1003481427}
   trackLabel: {fileID: 1163748451}
 --- !u!1 &1009226267
@@ -1880,7 +1876,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ARTrackedImageManager: {fileID: 1208193516}
-  cmdGameFactory: {fileID: 11400000, guid: 6fcdf44a5f90bfb4a8d1665dfe0bcc18, type: 2}
   trackData: {fileID: 11400000, guid: 4f5be5cdf037cd840a2cfad0de661ec1, type: 2}
 --- !u!4 &1952593998
 Transform:

@@ -17,7 +17,6 @@ namespace Components
     {
         [Header("Data")]
         public TrackManagerViewModel trackImageManager;
-        public ViewModel.ConsoleViewModel debugConsole;
 
         [Header("UI")]
         public Button trackInput;
@@ -25,7 +24,7 @@ namespace Components
 
         void Start()
         {
-            trackImageManager.currentTrackActive
+            trackImageManager.currentTrackInterfaceActive
                 .Subscribe(OnButtonActive)
                 .AddTo(this);
             
@@ -33,7 +32,7 @@ namespace Components
                 .Subscribe(OnTrackLabelChange)
                 .AddTo(this);
             
-            trackImageManager.currentTrackActive.Value = true;
+            trackImageManager.currentTrackInterfaceActive.Value = true;
         }
 
         private void OnTrackLabelChange(string text)

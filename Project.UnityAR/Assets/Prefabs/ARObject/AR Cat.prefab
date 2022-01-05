@@ -9,9 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3751314188262578068}
+  - component: {fileID: 8208558646662388697}
   - component: {fileID: 3751314188262578069}
-  - component: {fileID: 3751314188262578066}
-  - component: {fileID: 3751314188262578067}
   m_Layer: 0
   m_Name: AR Cat
   m_TagString: Untagged
@@ -28,12 +27,25 @@ Transform:
   m_GameObject: {fileID: 3751314188262578064}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.91000104, y: 0.41363698, z: 0.45500073}
+  m_LocalScale: {x: 0.60666734, y: 0.275758, z: 0.3033338}
   m_Children:
   - {fileID: 6776443853240873209}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!114 &8208558646662388697
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3751314188262578064}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46a4a5386e09872478216e0cfa7d256e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  arObjectData: {fileID: 11400000, guid: 420f65c0fc8fa4a40aae7dc492769a6d, type: 2}
 --- !u!114 &3751314188262578069
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -46,35 +58,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84fa87419359bb249917b2eae3c0991a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &3751314188262578066
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3751314188262578064}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 38797650ba6e75547a6c055d714f24d2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ARObject: {fileID: 11400000, guid: 420f65c0fc8fa4a40aae7dc492769a6d, type: 2}
-  trackImageManager: {fileID: 11400000, guid: 4f5be5cdf037cd840a2cfad0de661ec1, type: 2}
-  shapesColorRender:
-  - {fileID: 8828691084186811394}
---- !u!114 &3751314188262578067
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3751314188262578064}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7e4ad051a5cbb514d9f24ffa2950c9e6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ARObject: {fileID: 11400000, guid: 420f65c0fc8fa4a40aae7dc492769a6d, type: 2}
 --- !u!1 &6143212689385417283
 GameObject:
   m_ObjectHideFlags: 0
@@ -85,7 +68,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6776443853240873209}
   m_Layer: 0
-  m_Name: Cat
+  m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

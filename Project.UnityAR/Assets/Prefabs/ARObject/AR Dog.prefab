@@ -162,7 +162,7 @@ GameObject:
   m_Component:
   - component: {fileID: 543450653269342813}
   m_Layer: 0
-  m_Name: Dog
+  m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -441,9 +441,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2437345510069296458}
+  - component: {fileID: 1422389282590188278}
   - component: {fileID: 2437345510069296461}
-  - component: {fileID: 2437345510069296460}
-  - component: {fileID: 2437345510069296463}
   m_Layer: 0
   m_Name: AR Dog
   m_TagString: Untagged
@@ -460,12 +459,25 @@ Transform:
   m_GameObject: {fileID: 2437345510069296462}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 3.1818664, y: 3.1818662, z: 3.1818662}
+  m_LocalScale: {x: 2.121244, y: 2.121244, z: 2.121244}
   m_Children:
   - {fileID: 543450653269342813}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!114 &1422389282590188278
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2437345510069296462}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46a4a5386e09872478216e0cfa7d256e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  arObjectData: {fileID: 11400000, guid: 7276dc0f22eb42d4a8f35bdb1cbc509d, type: 2}
 --- !u!114 &2437345510069296461
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -478,35 +490,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84fa87419359bb249917b2eae3c0991a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &2437345510069296460
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2437345510069296462}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 38797650ba6e75547a6c055d714f24d2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ARObject: {fileID: 11400000, guid: 7276dc0f22eb42d4a8f35bdb1cbc509d, type: 2}
-  trackImageManager: {fileID: 11400000, guid: 4f5be5cdf037cd840a2cfad0de661ec1, type: 2}
-  shapesColorRender:
-  - {fileID: 4134984583316701516}
---- !u!114 &2437345510069296463
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2437345510069296462}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7e4ad051a5cbb514d9f24ffa2950c9e6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ARObject: {fileID: 11400000, guid: 7276dc0f22eb42d4a8f35bdb1cbc509d, type: 2}
 --- !u!1 &2558069423773049575
 GameObject:
   m_ObjectHideFlags: 0
@@ -812,7 +795,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 3174568114226133835, guid: 253ee1d43c90b6649a748269ecd2311e, type: 3}
+  - {fileID: 2100000, guid: 24959be1d2e8f3b48a70a41b91b0cbc1, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

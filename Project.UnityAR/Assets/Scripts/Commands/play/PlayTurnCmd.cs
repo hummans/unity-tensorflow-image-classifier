@@ -19,15 +19,13 @@ public class PlayTurnCmd : ICommand
 {
     private ARTrackedImageManager trackedImageManager;
     private readonly Camera arCamera;
-    private ViewModel.ConsoleViewModel debugConsole;
     private TrackManagerViewModel trackData;
     private PlayTurnGateway playTurnGateway;
 
-    public PlayTurnCmd(ARTrackedImageManager trackedImageManager, Camera arCamera, ViewModel.ConsoleViewModel debugConsole, TrackManagerViewModel trackData, PlayTurnGateway playTurnGateway)
+    public PlayTurnCmd(ARTrackedImageManager trackedImageManager, Camera arCamera, TrackManagerViewModel trackData, PlayTurnGateway playTurnGateway)
     {
         this.trackedImageManager = trackedImageManager;
         this.arCamera = arCamera;
-        this.debugConsole = debugConsole;
         this.trackData = trackData;
         this.playTurnGateway = playTurnGateway;
     }
@@ -41,27 +39,37 @@ public class PlayTurnCmd : ICommand
     private void PlayProcess(Texture2D textureCrop, Texture2D screenShotTex)
     {
         // Find colors in the image   
-        trackData.currentTrackActive.Value = false;
+        trackData.currentTrackInterfaceActive.Value = false;
         trackData.currentTrackLabel.Value = "[PLAY] Play Process..";
 
-        Debug.Log($"Play input received!");
+        Debug.Log($"-- Play input received! --");
 
         playTurnGateway.PlayTurn(trackData, textureCrop)
             // .Do(_ = >) Call to OnNext color
-            .Do(_ => Debug.Log($"Process to add image to the runtime library"))
-            .Do(_ => RuntimeLibraryManager.AddImageRuntimeLibrary(textureCrop, screenShotTex, trackedImageManager, debugConsole, trackData)
-                        .Do(_ => trackData.ARTrackedEnable.Value = true)
-                        .Do(_ => ResetInput())
-                        .Subscribe())
+            .Do(_ => Debug.Log($"-- Process runtime library! --"))
+            .Do(value => AddImageRuntimeLibrary(value, textureCrop, screenShotTex))
             .Subscribe();   
     }
 
+    private void AddImageRuntimeLibrary(bool execute, Texture2D textureCrop, Texture2D screenShotTex)
+    {
+        if(!execute)
+        {
+            Debug.LogError("Play interrupted because has an HTTP Error!");
+            return;
+        }
+
+        RuntimeLibraryManager.AddImageRuntimeLibrary(textureCrop, screenShotTex, trackedImageManager, trackData)
+                        .Do(_ => trackData.ARTrackedEnable.Value = true)
+                        .Do(_ => ResetInput())
+                        .Subscribe();
+    }
     private List<Texture2D> GetTexture()
     {
         trackData.ARTrackedEnable.Value = false;
         trackData.currentTrackLabel.Value = "[Play] Capturing Image..";
 
-        Texture2D screenShotTex = Screenshot.GetScreenShot(arCamera, debugConsole);
+        Texture2D screenShotTex = Screenshot.GetScreenShot(arCamera);
         Texture2D textureCrop = Screenshot.Save(Screenshot.ResampleAndCrop(screenShotTex, trackData.widthTexture, trackData.heightTexture));
         trackData.currentTrackScreenshoot.Value = screenShotTex;
 
@@ -77,6 +85,6 @@ public class PlayTurnCmd : ICommand
         Debug.Log($"Reseting play input button!");
 
         trackData.currentTrackLabel.Value = "Play Capture";
-        trackData.currentTrackActive.Value = true;
+        trackData.currentTrackInterfaceActive.Value = true;
     }
 }

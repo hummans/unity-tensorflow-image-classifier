@@ -13,13 +13,10 @@ namespace Components
 {
     public class TrackedManagerImageDisplay : MonoBehaviour
     {   
-        [Header("Reference")]
+        [Header("AR Reference")]
         public ARTrackedImageManager ARTrackedImageManager;
-        
-        [Header("Data")]
-        public GameCmdFactory cmdGameFactory;
         public TrackManagerViewModel trackData;
-
+        
         private GameObject _arPrefabInstantied;
         private GameObject _cubeScreen;
 
@@ -28,6 +25,9 @@ namespace Components
 
         private void OnTrackedImagesChanged(ARTrackedImagesChangedEventArgs eventArgs)
         {
+            if(trackData.ARTrackedEnable.Value == false)
+                return;
+
             try
             {        
                 foreach(ARTrackedImage trackedImage in eventArgs.added)
@@ -38,30 +38,30 @@ namespace Components
                 {
                     if (trackedImage.trackingState == TrackingState.Tracking)
                     {
-                        UpdateARPrefab(_arPrefabInstantied, trackedImage);
+                        if(_arPrefabInstantied != null)
+                            UpdateARPrefab(_arPrefabInstantied, trackedImage);
                     } 
                     else 
                     {
-                        _arPrefabInstantied.SetActive(false);
+                        if(_arPrefabInstantied != null)
+                            _arPrefabInstantied.SetActive(false);
                     }
                 }
                 foreach(ARTrackedImage trackedImage in eventArgs.removed)
                 {
-                    _arPrefabInstantied.SetActive(false);
+                    if(_arPrefabInstantied != null)
+                        _arPrefabInstantied.SetActive(false);
                 }
             }
             catch(Exception e)
             {   
-                Debug.Log("Horrible things happened! ("+e.ToString()+")");
+                Debug.LogError("Horrible things happened! ("+e.ToString()+")");
             }
         }
 
         private void InstanceARPrefab(ARTrackedImage trackedImage)
-        {
-            if(trackData.ARTrackedEnable.Value == false)
-                return;
-                
-            int idObject = trackData.currentRecognition.Value;
+        {      
+            int idObject = trackData.currentRecognition.Value.prediction;
             Debug.Log($"Instance AR Prefab with name {trackData.deepLearningConfig.recognitionResponse[idObject]}");
 
             GameObject arObject = trackData.ARObjectPrefab

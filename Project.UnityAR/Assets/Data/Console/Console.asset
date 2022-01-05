@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxToDisplay: 20
   showLogMessage: 1
-  showLogError: 0
+  showLogError: 1
   showLogWarning: 0

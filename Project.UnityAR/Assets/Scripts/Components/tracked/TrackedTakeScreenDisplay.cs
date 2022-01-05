@@ -16,7 +16,7 @@ namespace Components
 
         void Start()
         {
-            trackImageManager.currentTrackActive
+            trackImageManager.currentTrackInterfaceActive
                 .Subscribe(OnActive)
                 .AddTo(this);
         }

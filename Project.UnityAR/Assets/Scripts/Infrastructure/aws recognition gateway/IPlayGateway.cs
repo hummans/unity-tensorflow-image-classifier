@@ -7,6 +7,6 @@ namespace Infrastructure
 {
     public interface IPlayGateway 
     {
-        public IObservable<Unit> PlayTurn(TrackManagerViewModel trackImageManagerData, Texture2D textureScreenshoot);
+        public IObservable<bool> PlayTurn(TrackManagerViewModel trackImageManagerData, Texture2D textureScreenshoot);
     }
 }

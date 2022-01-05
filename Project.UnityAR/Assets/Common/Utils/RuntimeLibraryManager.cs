@@ -12,15 +12,14 @@ using ViewModel;
 public static class RuntimeLibraryManager
 {
     public static IObservable<Unit> AddImageRuntimeLibrary(Texture2D textureCrop, Texture2D screenShotTex, ARTrackedImageManager trackedImageManager
-    , ConsoleViewModel debugConsole, TrackManagerViewModel trackData)
+    , TrackManagerViewModel trackData)
     {
         return Observable.FromCoroutine<Unit>((observer, cancellationToken) 
-            => AddImageJob(textureCrop, screenShotTex, 0.3f, observer, cancellationToken, trackedImageManager, debugConsole, trackData));
+            => AddImageJob(textureCrop, screenShotTex, 0.3f, observer, cancellationToken, trackedImageManager, trackData));
     }  
            
     private static IEnumerator AddImageJob(Texture2D textureCrop, Texture2D texture2D, float widthInMeters, 
-    IObserver<Unit> observer, CancellationToken cancellationToken, ARTrackedImageManager trackedImageManager
-    ,ConsoleViewModel debugConsole, TrackManagerViewModel trackData)
+    IObserver<Unit> observer, CancellationToken cancellationToken, ARTrackedImageManager trackedImageManager, TrackManagerViewModel trackData)
     {
         yield return null;
 
@@ -55,7 +54,7 @@ public static class RuntimeLibraryManager
                     trackData.currentTrackLabel.Value = "[Play] Job Running...";
                 }
 
-                trackData.currentTrackActive.Value = false;
+                trackData.currentTrackInterfaceActive.Value = false;
                 trackData.currentTrackLabel.Value = "[Play] Job Completed...";
                 
                 Debug.Log($"Job Completed ({mutableRuntimeReferenceImageLibrary.count})");
