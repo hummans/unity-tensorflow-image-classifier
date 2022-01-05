@@ -1,5 +1,5 @@
-<h1 align="center"> Image Classifier (Unity + Deep Learning) </h1>
-  
+<h1 align="center"> Image Classifier </h1>
+  <p align="center"> (Unity + Deep Learning + AWS Serverless) </p>
   <div align="center">
 
   [![GitHub release (latest by date)](https://img.shields.io/github/v/release/matiasvallejosdev/unity-tensorflow-image-classifier?color=4cc51e)](https://github.com/matiasvallejosdev/unity-tensorflow-image-classifier)
@@ -12,11 +12,16 @@
   [![made-for-VSCode](https://img.shields.io/badge/Made%20for-VSCode-1f425f.svg)](https://code.visualstudio.com/)
   [![made-for-Colab](https://img.shields.io/badge/Made%20for-Colab-orange)](https://colab.research.google.com/)
   </div>
-  
-  <p align="center"> <br />
-This repository contains an interactive augmented reality application developed in Unity that uses a neural network hosted on AWS to identify the image and colors. Once classified, the classified object in the image is shown on stage using AR Foundation augmented reality markers (ARCore - ARKit). <br />
+<p align="center"> 
+  <br />
+This repository contains an interactive augmented reality application developed in Unity that uses a neural network trained with Tensorflow and hosted on AWS with the ability to identify cats or dogs. Once the image captured by the user is classified, the classified object (cat or dog) will be shown on stage using AR Foundation with a dynamic marker.       <br /> <br />
+  <a href="https://youtu.be/Q-14FaPrD-A" target="_blank">View Demo in Youtube</a> <br />
+      <p align="center">
+      <a href="" rel="nofollow">
+      <img src="" alt="Demo Video" width="250">
+    </a>
   </p>
-    
+ 
   </p>
 </p>
 
