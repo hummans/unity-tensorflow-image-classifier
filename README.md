@@ -1,5 +1,4 @@
-<h1 align="center"> Image Classifier </h1>
-  <p align="center"> (Unity + Deep Learning + AWS Serverless) </p>
+<h1 align="center"> Unity Image Classifier </h1>
   <div align="center">
 
   [![GitHub release (latest by date)](https://img.shields.io/github/v/release/matiasvallejosdev/unity-tensorflow-image-classifier?color=4cc51e)](https://github.com/matiasvallejosdev/unity-tensorflow-image-classifier)
