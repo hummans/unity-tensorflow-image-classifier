@@ -14,10 +14,10 @@
 <p align="center"> 
   <br />
 This repository contains an interactive augmented reality application developed in Unity that uses a neural network trained with Tensorflow and hosted on AWS with the ability to identify cats or dogs. Once the image captured by the user is classified, the classified object (cat or dog) will be shown on stage using AR Foundation with a dynamic marker.       <br /> <br />
-  <a href="https://youtu.be/Q-14FaPrD-A" target="_blank">View Demo in Youtube</a> <br />
+  <a href="https://www.youtube.com/watch?v=yM04aaWbDEA&ab_channel=MatiasA.Vallejos" target="_blank">View Demo in Youtube</a> <br />
       <p align="center">
-      <a href="" rel="nofollow">
-      <img src="" alt="Demo Video" width="250">
+      <a href="https://www.youtube.com/watch?v=yM04aaWbDEA&ab_channel=MatiasA.Vallejos" rel="nofollow">
+      <img src="https://github.com/matiasvallejosdev/unity-tensorflow-image-classifier/blob/main/docs/Gif%20(1).gif?raw=true" alt="Demo Video" width="250">
     </a>
   </p>
  
@@ -47,7 +47,7 @@ EFS to store deep learning (DL) framework libraries and models to load from Lamb
 ### Diagram
 This is a picture of the servereless machine learning inference architecture and the execution flow.
 
-![Diagram](https://github.com/matiasvallejosdev/unity-tensorflow-image-classifier/blob/main/Project.Backend/docs/Serverless_Diagram.png?raw=true)
+![Diagram](https://github.com/matiasvallejosdev/unity-tensorflow-image-classifier/blob/main/backend/docs/Serverless_Diagram.png?raw=true)
 
 You can access to more information in this [article](https://aws.amazon.com/blogs/compute/building-deep-learning-inference-with-aws-lambda-and-amazon-efs/) developed by [James Beswick](https://aws.amazon.com/blogs/compute/author/jbeswick/).
 ### Prerequisites
@@ -60,13 +60,13 @@ Ar Application Screenshoot on Android Device.
 <p>
   <p>
     <a rel="nofollow">
-    <img src="https://github.com/matiasvallejosdev/unity-tensorflow-image-classifier/blob/main/Project.Docs/Screenshoot%20(2).jpg?raw=true" width="200">
+    <img src="https://github.com/matiasvallejosdev/unity-tensorflow-image-classifier/blob/main/docs/Screenshoot%20(2).jpg?raw=true" width="200">
     </a>
     <a rel="nofollow">
-    <img src="https://github.com/matiasvallejosdev/unity-tensorflow-image-classifier/blob/main/Project.Docs/Screenshoot%20(3).jpg?raw=true" width="200">
+    <img src="https://github.com/matiasvallejosdev/unity-tensorflow-image-classifier/blob/main/docs/Screenshoot%20(3).jpg?raw=true" width="200">
     </a>
     <a rel="nofollow">
-    <img src="https://github.com/matiasvallejosdev/unity-tensorflow-image-classifier/blob/main/Project.Docs/Screenshoot%20(1).jpg?raw=true" width="200">
+    <img src="https://github.com/matiasvallejosdev/unity-tensorflow-image-classifier/blob/main/docs/Screenshoot%20(1).jpg?raw=true" width="200">
     </a>
   </p>
 
