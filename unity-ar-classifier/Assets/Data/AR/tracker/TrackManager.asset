@@ -16,7 +16,7 @@ MonoBehaviour:
   - {fileID: 3751314188262578064, guid: 43cd93ad3535f1741a279b21b778b605, type: 3}
   - {fileID: 2437345510069296462, guid: 9d115d343ebf2f64c93ceffbd97df35d, type: 3}
   ARTrackedEnable:
-    value: 0
+    value: 1
   maxNumberOfImages: 2
   runtimeImageLibrary: {fileID: 11400000, guid: 347179d51b7e90b4a93e45c0080a3ca6, type: 2}
   deepLearningConfig: {fileID: 11400000, guid: c81eb2c8b28a4ac4cb2f1cb5e23c2ee3, type: 2}
@@ -25,6 +25,6 @@ MonoBehaviour:
   currentTrackLabel:
     value: Play Capture
   currentTrackInterfaceActive:
-    value: 0
+    value: 1
   currentTrackScreenshoot:
     value: {fileID: 0}
