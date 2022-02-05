@@ -9,10 +9,10 @@ class LambdaError():
         self.type = error._type
         self.message = error._description
 
-    def toJson(self):
+    def toDict(self):
         return {
-            'statusCode': self.statusCode,
-            'error': {
+            'Error': {
+                'statusCode': self.statusCode,
                 'message': self.message,
                 'type': self.type
             }
@@ -46,7 +46,7 @@ class PutDataFailedError():
     _type = 'putDataFailedError'
 
 @dataclass
-class PutDataFailedError():
+class GetDataFailedError():
     _httpStatus = HTTPStatus.NOT_ACCEPTABLE.value
     _description = HTTPStatus.NOT_ACCEPTABLE.description
     _type = 'getDataFailedError'

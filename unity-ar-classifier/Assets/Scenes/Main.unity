@@ -1235,7 +1235,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4dea56a9eaadd1c439095de4f9a371cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_SerializedLibrary: {fileID: 0}
+  m_SerializedLibrary: {fileID: 11400000, guid: 347179d51b7e90b4a93e45c0080a3ca6, type: 2}
   m_MaxNumberOfMovingImages: 0
   m_TrackedImagePrefab: {fileID: 0}
 --- !u!1 &1333091165
@@ -1248,7 +1248,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1333091166}
   m_Layer: 0
-  m_Name: ---------AR Runtime-------------
+  m_Name: ---------AR RUNTIME-------------
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1633,7 +1633,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1676898579}
   m_Layer: 0
-  m_Name: ---------Managers-------------
+  m_Name: ---------MANAGERS-------------
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1912,14 +1912,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 852444680}
     m_Modifications:
-    - target: {fileID: 1037301344368197377, guid: cee83bfb464a57547a3c8c61707992ad, type: 3}
-      propertyPath: m_text
-      value: '[L][HH:mm:ss] Debug Console'
-      objectReference: {fileID: 0}
-    - target: {fileID: 1037301344368197377, guid: cee83bfb464a57547a3c8c61707992ad, type: 3}
-      propertyPath: m_fontSizeMin
-      value: 55
-      objectReference: {fileID: 0}
     - target: {fileID: 1037301344558544747, guid: cee83bfb464a57547a3c8c61707992ad, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -2015,14 +2007,6 @@ PrefabInstance:
     - target: {fileID: 1037301344566640853, guid: cee83bfb464a57547a3c8c61707992ad, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1037301344628103528, guid: cee83bfb464a57547a3c8c61707992ad, type: 3}
-      propertyPath: m_MovementType
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1037301344628103528, guid: cee83bfb464a57547a3c8c61707992ad, type: 3}
-      propertyPath: m_ScrollSensitivity
-      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cee83bfb464a57547a3c8c61707992ad, type: 3}

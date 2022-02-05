@@ -59,8 +59,7 @@ public class PlayTurnCmd : ICommand
             return;
         }
 
-        RuntimeLibraryManager.AddImageRuntimeLibrary(textureCrop, screenShotTex, trackedImageManager, trackData)
-                        .Do(_ => trackData.ARTrackedEnable.Value = true)
+        RuntimeLibraryManager.AddImageRuntimeLibrary(screenShotTex, trackedImageManager, trackData)
                         .Do(_ => ResetInput())
                         .Subscribe();
     }
@@ -70,8 +69,8 @@ public class PlayTurnCmd : ICommand
         trackData.currentTrackLabel.Value = "[Play] Capturing Image..";
 
         Texture2D screenShotTex = Screenshot.GetScreenShot(arCamera);
-        Texture2D textureCrop = Screenshot.Save(Screenshot.ResampleAndCrop(screenShotTex, trackData.widthTexture, trackData.heightTexture));
-        trackData.currentTrackScreenshoot.Value = screenShotTex;
+        Texture2D textureCrop = Screenshot.CropScreenshoot(Screenshot.ResampleAndCrop(screenShotTex, trackData.widthTexture, trackData.heightTexture));
+        trackData.currentTrackScreenshoot.Value = textureCrop;
 
         return new List<Texture2D>{
             textureCrop,
@@ -81,6 +80,7 @@ public class PlayTurnCmd : ICommand
 
     private async void ResetInput()
     {
+        trackData.ARTrackedEnable.Value = true;
         await Task.Delay(TimeSpan.FromSeconds(2));
         Debug.Log($"Reseting play input button!");
 

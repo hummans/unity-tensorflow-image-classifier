@@ -11,15 +11,13 @@ using ViewModel;
 
 public static class RuntimeLibraryManager
 {
-    public static IObservable<Unit> AddImageRuntimeLibrary(Texture2D textureCrop, Texture2D screenShotTex, ARTrackedImageManager trackedImageManager
-    , TrackManagerViewModel trackData)
+    public static IObservable<Unit> AddImageRuntimeLibrary(Texture2D screenShotTex, ARTrackedImageManager trackedImageManager, TrackManagerViewModel trackData)
     {
         return Observable.FromCoroutine<Unit>((observer, cancellationToken) 
-            => AddImageJob(textureCrop, screenShotTex, 0.3f, observer, cancellationToken, trackedImageManager, trackData));
+            => AddImageJob(screenShotTex, observer, trackedImageManager, trackData));
     }  
            
-    private static IEnumerator AddImageJob(Texture2D textureCrop, Texture2D texture2D, float widthInMeters, 
-    IObserver<Unit> observer, CancellationToken cancellationToken, ARTrackedImageManager trackedImageManager, TrackManagerViewModel trackData)
+    private static IEnumerator AddImageJob(Texture2D texture2D, IObserver<Unit> observer, ARTrackedImageManager trackedImageManager, TrackManagerViewModel trackData)
     {
         yield return null;
 
@@ -28,7 +26,7 @@ public static class RuntimeLibraryManager
         
         NativeArray<byte> data = texture2D.GetRawTextureData<byte>();
         var aspectRatio = (float) texture2D.width / (float)texture2D.height;
-        var sizeInMeters = new Vector2(widthInMeters, widthInMeters * aspectRatio);
+        var sizeInMeters = new Vector2(0.3f, 0.3f * aspectRatio);
         var referenceImage = new XRReferenceImage(
             // Guid is assigned after image is added
             SerializableGuid.empty,
@@ -76,8 +74,8 @@ public static class RuntimeLibraryManager
             {
                 Debug.LogError("Texture2D is null");    
             }
-            observer.OnError(e);
             Debug.LogError($"Error: {e.ToString()}");
+            observer.OnError(e);
         }
     }
 }

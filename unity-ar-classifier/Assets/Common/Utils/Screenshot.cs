@@ -40,7 +40,7 @@ namespace Components.Utils
             return tex;
         }
 
-        public static Texture2D Save(Texture2D screenShot)
+        public static Texture2D CropScreenshoot(Texture2D screenShot)
         {
             // Normalize screenshoot with scene parameters
             Texture2D tex = screenShot;

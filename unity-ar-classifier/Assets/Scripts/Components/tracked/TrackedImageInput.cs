@@ -26,10 +26,14 @@ namespace Components
 
         void Awake()
         {
-            Debug.Log("Creating Runtime Mutable Image Library");
             
-            var lib = trackedImageManager.CreateRuntimeLibrary(trackData.runtimeImageLibrary);
-            trackedImageManager.referenceLibrary = lib;
+            if(!Application.isEditor)
+            {
+                Debug.Log("Creating Runtime Mutable Image Library");
+                var lib = trackedImageManager.CreateRuntimeLibrary(trackData.runtimeImageLibrary);
+                trackedImageManager.referenceLibrary = lib;
+            }
+
             trackedImageManager.requestedMaxNumberOfMovingImages = trackData.maxNumberOfImages;
         }
 

@@ -1,1 +1,1 @@
-{"event_sample_image": "{\"routeKey\": \"GET /classify\", \"pathParameters\": {}, \"body\": {}, \"queryStringParameters\": {\"image_url\": \"https://es.acervolima.com/wp-content/uploads/2021/09/acervo-lima-logo-250x28.png\"}}"}
+{"event_sample_image": "{\"routeKey\": \"GET /classify\", \"pathParameters\": {}, \"body\": {}, \"queryStringParameters\": {\"image_url\": \"https://i.pinimg.com/originals/87/fd/4e/87fd4e9caf9bd711039faba32ae6e7f4.jpg\"}}"}

@@ -1,13 +1,27 @@
-from ctypes import Array
+import json
+from urllib import response
 import pytest
 import requests
 import pandas as pd
 import numpy as np
 
-from packages.classify_cat_dog import download_image, get_label, prepare_image
+from classify_cat_dog import download_image, get_label, prepare_image, lambda_function
 
 class TestClassifyCatDog:
     
+    @pytest.fixture
+    def event(self):
+        PATH = r"C:\Users\matia\Desktop\Matias A. Vallejos\Github\Github.Personal\unity-tensorflow-image-classifier\backend\services\classifier-service\src\get-cat-dog\event.json"
+        event = {}
+        with open(PATH, 'r') as f:
+            event = json.load(f)
+            event = json.loads(event["event_sample_image"])
+        return event
+    
+    @pytest.fixture
+    def context(self):
+        return ""            
+        
     @pytest.fixture
     def data_image(self):
         dir = r""
@@ -24,6 +38,14 @@ class TestClassifyCatDog:
     @pytest.fixture
     def unvalid_url(self):
         return "https://i.pinimgcom/"
+    
+    def test_lambda_function(self, event, context):
+        http_response = lambda_function(event, context)
+        
+        assert isinstance(http_response, str)
+        
+        http_response = json.loads(http_response)
+        assert http_response['HTTPStatus'] == 200        
     
     def test_get_label_dog(self):
         lbl = get_label(1)
